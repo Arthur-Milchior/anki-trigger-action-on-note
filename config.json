@@ -1,0 +1,16 @@
+{
+  "rules":{
+	"note type name":[
+	  {
+		"trigger":{
+		  "condition":"mature",
+		  "cards": "card type name"
+	   },
+	   "action": {
+		 "action": "suspend",
+		 "cards": "other card type name"
+	   }
+	  }
+	]
+  }
+}

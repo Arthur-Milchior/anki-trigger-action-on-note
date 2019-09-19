@@ -1,0 +1,2 @@
+rm ????.zip
+zip ????.zip config.* *py  LICENSE *.md zipping --exclude \*~ \*zip

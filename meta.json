@@ -1,0 +1,1 @@
+{"config": {"rules": {"Song": [{"trigger": {"condition": "mature", "cards": "0.0.0-0.0.1"}, "action": {"action": "suspend", "cards": ["0.0.0-0.0.0", "0.0.1-0.0.1"]}}]}}}
