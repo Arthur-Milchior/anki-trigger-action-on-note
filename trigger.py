@@ -15,26 +15,26 @@ methods = {
     "sql": lambda card, sql: mw.col.db.scalar(sql, {"cid": card.id, "nid": card.nid}),
 }
     
-def checkAtomicTriggerCard(card, trigger, method):
+def checkAtomicTriggerCard(card, trigger):
+    condition = trigger.get("condition")
     if card is None:
         return condition == "not generated"
-    return method(card, trigger.get("threshold"))
-    
-def checkAtomicTriggerNote(note, trigger):
-    condition = trigger.get("condition")
     method = methods.get(condition)
     if method is None:
         print(f"Unknown trigger {condition}")
         return False
+    return method(card, trigger.get("threshold"))
+    
+def checkAtomicTriggerNote(note, trigger):
     cards = trigger["cards"]
     
     if isinstance(cards, str):
         cardName = cards
-        return checkAtomicTriggerCard(getCard(note, cardName), trigger, method)
+        return checkAtomicTriggerCard(getCard(note, cardName), trigger)
     quantifier, cards = cards
     zero = True if quantifier == "all" else False
     for cardName in cards:
-        if checkAtomicTriggerCard(getCard(note, cardName), method) == zero:
+        if checkAtomicTriggerCard(getCard(note, cardName), trigger) == zero:
             return zero
     return not zero
 
@@ -43,8 +43,8 @@ def checkTrigger(note, trigger):
         return checkAtomicTriggerNote(note, trigger)
     quantifier, atomicTriggers = trigger
     zero = False if quantifier == "all" else True
-    for atomicTrigger in trigger:
-        if bool(checkAtomicTriggerNote(note, atomicTrigger)) == zero:
+    for subTrigger in trigger:
+        if bool(checkTrigger(note, subTrigger)) == zero:
             return zero
     return not True
 
@@ -76,7 +76,7 @@ def reverseAtomicTrigger(atomicTrigger):
     }
 
 def reverseTrigger(trigger):
-    quantifier, atomicTriggers = trigger
+    quantifier, subTriggers = trigger
     return (
         reverseQuantifier(quantifier),
-        [reverseTrigger(atomicTrigger) for atomicTrigger in atomicTriggers])
+        [reverseTrigger(subTrigger) for subTrigger in subTriggers])

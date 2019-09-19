@@ -23,11 +23,11 @@ def unsuspendCard(card):
 
 def suspendCard(card):
     if card.queue != QUEUE_SUSPENDED:
-        print(f"Card {card} is not suspended, we suspend it")
+        #print(f"Card {card} is not suspended, we suspend it")
         card.queue = QUEUE_SUSPENDED
         card.flush()
         return True
-    print(f"Card {card} is suspended, we have nothing to do")
+    #print(f"Card {card} is suspended, we have nothing to do")
     return False
 
 
@@ -45,12 +45,12 @@ def applyActionToCard(card, method):
     return False
 
 def applyActionToNote(note, action):
-    print(f"Applyng action {action}")
+    #print(f"Applyng action {action}")
     actionName = action.get("action")
-    print(f"Action is {actionName}")
+    #print(f"Action is {actionName}")
     method = actionMethods.get(actionName)
     if method is None:
-        print(f"Unknown action {action}")
+        #print(f"Unknown action {action}")
         return 
     cardTypes = action["cards"]
     if isinstance(cardTypes, str):
@@ -58,7 +58,7 @@ def applyActionToNote(note, action):
     someChange = False
     for cardName in cardTypes:
         card = getCard(note, cardName)
-        print(f"For card name {cardName}, found card {card}")
+        #print(f"For card name {cardName}, found card {card}")
         someChange = applyActionToCard(card, method) or someChange
     return someChange
 

@@ -13,8 +13,9 @@ A trigger is either:
 * an atomic trigger/action
 * a tuple with:
 ** "any" or "all"
-** a list of atomic trigger
-The trigger holds if any/all atomic triggers holds.
+** a list of trigger
+
+The non-atomic trigger holds if any/all atomic triggers holds.
 
 An "atomic trigger" is:
 * "condition": a condition which must be satisfied. It can be

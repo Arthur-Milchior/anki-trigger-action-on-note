@@ -7,16 +7,16 @@ def applyRuleToNote(note, rule):
     """Whether there was a change"""
     if rule is None:
         return False
-    print(f"Applying rule {rule}")
+    #print(f"Applying rule {rule}")
     if not checkTrigger(note, rule["trigger"]):
-        print("trigger failed to apply")
+        #print("trigger failed to apply")
         return False
-    print("Trigger succeeded")
+    #print("Trigger succeeded")
     ret = applyActions(note, rule["action"])
-    if ret:
-        print("Some change")
-    else:
-        print("no change")
+    # if ret:
+    #     #print("Some change")
+    # else:
+    #     #print("no change")
     return ret
 
 def applyRulesToNote(note, rules):
@@ -40,7 +40,7 @@ def updateNote(note):
     while applyRulesToNote(note, rules):
         iter +=1
         if iter >= 10:
-            print(f"There was more than 10 application of the rules to note {note.id}, something is probably wrong. Aborting.")
+            #print(f"There was more than 10 application of the rules to note {note.id}, something is probably wrong. Aborting.")
             break
     return iter
         
