@@ -1,0 +1,2 @@
+rm trigger_action_rule.zip
+zip trigger_action_rule.zip config.* *py  LICENSE *.md zipping --exclude \*~ \*zip
