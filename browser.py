@@ -27,7 +27,7 @@ def onApply(browser):
     missingNoteTypes = set()
     for nid in browser.selectedNotes():
         nbChangeNid, missingNid = updateNid(nid)
-        if nbChange:
+        if nbChangeNid:
             nbChange += 1
         missingNoteTypes |= missingNid
     mw.progress.finish()

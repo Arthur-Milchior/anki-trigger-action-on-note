@@ -1,0 +1,33 @@
+{"rules":
+ "Memsise - 4000 German Words by Frequency":
+ [
+   {
+	 "trigger" : {
+	   "condition": "mature",
+	   "cards": "English -> German"
+	 },
+	 "action" : {
+	   "action": "unsuspend",
+	   "cards": "German -> English"
+	 }
+   },
+   {
+	 "trigger" :
+	 ["any",
+	  [{
+		  "condition": "young",
+		  "cards": "English -> German"
+		},
+	   {
+		 "condition": "new",
+		 "cards": "English -> German"
+	   }
+	  ]
+	 ],
+	 "action" : {
+	   "action": "suspend",
+	   "cards": "German -> English"
+	 }
+   }
+ ]
+} 

@@ -4,6 +4,7 @@ methods = {
     "mature": lambda card, param=None: card.ivl >= (21 if param is None else param),
     "young": lambda card, param=None: card.ivl < (21 if param is None else param),
     "easy": lambda card, param=None: card.factor > ((250 if param is None else param)-250),
+    "new": lambda card, param=None: card.type == CARD_NEW,
     # remove 250 because the easiness is actually .factor+250,
     "hard": lambda card, param=None: card.factor < ((250 if param is None else param)-250),
     "suspended": lambda card, param=None: card.queue == QUEUE_SUSPENDED,
@@ -46,9 +47,11 @@ def checkAtomicTriggerNote(note, trigger):
 def checkTrigger(note, trigger):
     if isinstance(trigger, dict):
         return checkAtomicTriggerNote(note, trigger)
-    quantifier, atomicTriggers = trigger
+    if len(trigger) != 2:
+        print(f"Trigger is {trigger}")
+    quantifier, subtriggers = trigger
     zero = False if quantifier == "all" else True
-    for subTrigger in trigger:
+    for subTrigger in subtriggers:
         if bool(checkTrigger(note, subTrigger)) == zero:
             return zero
     return not True

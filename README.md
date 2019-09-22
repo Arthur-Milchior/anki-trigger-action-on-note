@@ -30,7 +30,7 @@ and that it's unsuspended only if two octaves one hand is suspended.
 
 This add-on allow you to do all of that, and even more.
 
-## Example
+## Examples
 I've been told this add-on needs example. So here are two real life
 examples from my collection. Those are still work in progress, and
 I'll probably made them more complete when I see the need for it.
@@ -43,6 +43,14 @@ readable way.
 My card types are big, so you may want to use add-on
 [1482505492](https://ankiweb.net/shared/info/1482505492) to makes anki
 quicker before taking a look at them in details.
+
+### Two languages
+
+Let's assume that you want to learn german and use "[4000 German Words by Frequency](https://ankiweb.net/shared/info/653061995)". Each note has two
+cards: "German -> English" and "English -> German". If you're like me,
+the first card is quite easier than the second one. So may be you want to wait until the first card is mature to show the second. In this case, you'd use [those rules](example_german.json).
+
+There are two rules.  If English -> German is new or young, then German -> English should be suspended. This is what occurs when the deck is added to your collection. The second rule is that when English -> German is mature, then German -> English should be unsuspended. 
 
 ### Songs
 I want to learn a song by learning it stanza by stanza. Unless it's
