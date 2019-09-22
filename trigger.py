@@ -1,18 +1,20 @@
 from .utils import *
 
 methods = {
-    "mature": lambda card, threshold=None: card.ivl>= (21 if threshold is None else threshold),
-    "young": lambda card, threshold=None: card.ivl< (21 if threshold is None else threshold),
-    "easy": lambda card, threshold=None: card.factor > ((250 if threshold is None else threshold)-250),
+    "mature": lambda card, param=None: card.ivl>= (21 if param is None else param),
+    "young": lambda card, param=None: card.ivl< (21 if param is None else param),
+    "easy": lambda card, param=None: card.factor > ((250 if param is None else param)-250),
     #remove 250 because the easiness is actually .factor+250,
-    "hard": lambda card, threshold=None: card.factor < ((250 if threshold is None else threshold)-250),
-    "suspended": lambda card, threshold=None: card.queue == QUEUE_SUSPENDED,
-    "unsuspended": lambda card, threshold=None: card.queue != QUEUE_SUSPENDED,
-    "buried": lambda card, threshold=None: card.queue == QUEUE_BURIED,
-    "unburied": lambda card, threshold=None: card.queue != QUEUE_BURIED,
-    # "generated": lambda card, threshold=None: card != None
-    # "not generated": lambda card, threshold=None: card == None
+    "hard": lambda card, param=None: card.factor < ((250 if param is None else param)-250),
+    "suspended": lambda card, param=None: card.queue == QUEUE_SUSPENDED,
+    "unsuspended": lambda card, param=None: card.queue != QUEUE_SUSPENDED,
+    "buried": lambda card, param=None: card.queue == QUEUE_BURIED,
+    "unburied": lambda card, param=None: card.queue != QUEUE_BURIED,
+    # "generated": lambda card, param=None: card != None
+    # "not generated": lambda card, param=None: card == None
     "sql": lambda card, sql: mw.col.db.scalar(sql, {"cid": card.id, "nid": card.nid}),
+    "flag": lambda card, param=None: card.flag % 8 == param,  
+    "unflag": lambda card, param=None: card.flag % 8 != param,  
 }
     
 def checkAtomicTriggerCard(card, trigger):
@@ -23,7 +25,7 @@ def checkAtomicTriggerCard(card, trigger):
     if method is None:
         print(f"Unknown trigger {condition}")
         return False
-    return method(card, trigger.get("threshold"))
+    return method(card, trigger.get("param"))
     
 def checkAtomicTriggerNote(note, trigger):
     cards = trigger["cards"]
@@ -60,7 +62,9 @@ def reverseName(triggerName):
         "unsuspended": "suspended",
         "unburied": "buried",
         "hard": "easy",
-        "not generated": "generated"
+        "not generated": "generated",
+        "flag": "unflag",
+        "unflag": "flag",
     }.get("condition")
 
 def reverseQuantifier(quantifierName):

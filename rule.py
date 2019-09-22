@@ -36,13 +36,15 @@ def updateNote(note):
     model = note.model()
     modelName = model["name"]
     rules = getUserOption("rules").get(modelName)
+    if rules is None:
+        return 0, {modelName}
     iter = 0
     while applyRulesToNote(note, rules):
         iter +=1
         if iter >= 10:
             #print(f"There was more than 10 application of the rules to note {note.id}, something is probably wrong. Aborting.")
             break
-    return iter
+    return iter, set()
         
 
 def updateNid(nid):
@@ -50,9 +52,12 @@ def updateNid(nid):
     return updateNote(note)
 
 def updateAll():
-    someChange = False
+    nbChanges = 0
+    missings = set
     for nid in mw.col.findNotes(""):
-        someChange = updateNid(nid) or someChange
-    return someChange
+        nbChangesNid, missingNid = updateNid(nid)
+        nbChanges +=  nbChangeNid
+        missings |= missingNid
+    return nbChanges, missing
             
     

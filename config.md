@@ -20,11 +20,11 @@ The non-atomic trigger holds if any/all atomic triggers holds.
 An "atomic trigger" is:
 * "condition": a condition which must be satisfied. It can be
   "mature", "young", "suspended", "unsuspended", "buried", "unburied",
-  "easy", "hard", "generated", "not generated" or expressed as a sql
-  request where `:cid` is the card id and `:nid` is note id. The query
-  should return a boolean scalar.
-* "threshold": the value at which a card is supposed to be
-  mature/easy. By default a card is mature when it's interval is 21
+  "easy", "hard", "generated", "not generated", "flag", "unflag" or
+  expressed as a sql request where `:cid` is the card id and `:nid` is
+  note id. The query should return a boolean scalar.
+* "param": the value at which a card is supposed to be
+  mature/easy or The number of the flag. By default a card is mature when it's interval is 21
   days and an easy card is one whose ease it's at least 300%
 * "card types: a (list of) card type's name on which this trigger apply. If
   some card does not exists, the trigger fails (unless the condition
@@ -36,7 +36,8 @@ A action is either:
 
 An atomic action is:
 * "action": what to do to other cards, when the triggering rules
-  apply. Actions are "suspend", "unsuspend", "bury", "unbury"
+  apply. Actions are "suspend", "unsuspend", "bury", "unbury", "flagi"
+  with "i" a flag number between 0 and 4 included.
 * "card types: a list of card type on which this action apply. If some
   card does not exists, the action is not applied to it simply.
 
