@@ -20,7 +20,7 @@ The non-atomic trigger holds if any/all atomic triggers holds.
 An "atomic trigger" is:
 * "condition": a condition which must be satisfied. It can be
   "mature", "young", "suspended", "unsuspended", "buried", "unburied",
-  "easy", "hard", "generated", "not generated", "flag", "unflag" or
+  "easy", "hard", "generated", "not generated", "flag", "unflag", "new" or
   expressed as a sql request where `:cid` is the card id and `:nid` is
   note id. The query should return a boolean scalar.
 * "param": the value at which a card is supposed to be
