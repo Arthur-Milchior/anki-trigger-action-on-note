@@ -30,6 +30,11 @@ and that it's unsuspended only if two octaves one hand is suspended.
 
 This add-on allow you to do all of that, and even more.
 
+## Example
+You can see how I use this add-on to learn song, by downloading my
+[example package](example.apkg) and the [add-on configuraton](ex.json)
+related to this add-on.
+
 ## Warning
 ### Computer only
 This add-on can only affect cards on computers where the add-on is
