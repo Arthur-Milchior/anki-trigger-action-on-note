@@ -33,11 +33,21 @@ def suspendCard(card):
     return False
 
 
+def flag(flagNumber):
+    def aux(card):
+        if card.flag % 8 == flagNumber:
+            card.flag -= card.flag % 8
+            card.flush()
+            return True
+        return False
+
+
 actionMethods = {
     "suspend": suspendCard,
     "unsuspend": unsuspendCard,
     "bury": buryCard,
     "unbury": unburyCard,
+    ** {f"flag{i}": flag(i) for i in range(5)},
 }
 
 

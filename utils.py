@@ -7,7 +7,7 @@ def getTemplate(model, cardName):
     for tmpl in model["tmpls"]:
         if tmpl['name'] == cardName:
             return tmpl
-    print(f"No card type {cardName} in {model['name']}")
+    print(f"""No card type "{cardName}" in {model['name']}""")
     return None
 
 

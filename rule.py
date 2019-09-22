@@ -34,12 +34,14 @@ def updateNote(note):
     model = note.model()
     modelName = model["name"]
     rules = getUserOption("rules").get(modelName)
+    if rules is None:
+        return 0, {modelName}
     iter = 0
     while applyRulesToNote(note, rules):
         iter += 1
         if iter >= 10:
             break
-    return iter
+    return iter, set()
 
 
 def updateNid(nid):
@@ -48,7 +50,10 @@ def updateNid(nid):
 
 
 def updateAll():
-    someChange = False
+    nbChanges = 0
+    missings = set
     for nid in mw.col.findNotes(""):
-        someChange = updateNid(nid) or someChange
-    return someChange
+        nbChangesNid, missingNid = updateNid(nid)
+        nbChanges += nbChangeNid
+        missings |= missingNid
+    return nbChanges, missing
