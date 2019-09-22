@@ -1,33 +1,33 @@
 {"rules":
- "Memsise - 4000 German Words by Frequency":
+ "Memrise - 4000 German Words by Frequency":
  [
    {
-	 "trigger" : {
-	   "condition": "mature",
-	   "cards": "English -> German"
-	 },
-	 "action" : {
+	 "action":
+	 {
 	   "action": "unsuspend",
-	   "cards": "German -> English"
+	   "cards": "German -> English"},
+	 "trigger":
+	 {
+	   "cards": "English -> German",
+	   "condition": "mature"
 	 }
    },
-   {
-	 "trigger" :
-	 ["any",
-	  [{
-		  "condition": "young",
-		  "cards": "English -> German"
-		},
+   {"action":
+	{"action": "suspend",
+	 "cards": "German -> English"
+	},
+	"trigger":
+	["any",
+	 [
 	   {
-		 "condition": "new",
-		 "cards": "English -> German"
-	   }
-	  ]
-	 ],
-	 "action" : {
-	   "action": "suspend",
-	   "cards": "German -> English"
-	 }
+		 "cards":
+		"English -> German",
+		"condition": "young"},
+	   {
+		 "cards": "English -> German",
+		 "condition": "new"}
+	 ]
+	]
    }
  ]
 } 
