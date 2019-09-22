@@ -31,10 +31,43 @@ and that it's unsuspended only if two octaves one hand is suspended.
 This add-on allow you to do all of that, and even more.
 
 ## Example
-You can see how I use this add-on to learn song, by downloading my
-[example package](example.apkg) and the [add-on configuraton](ex.json)
-related to this add-on.
+I've been told this add-on needs example. So here are two real life
+examples from my collection. Those are still work in progress, and
+I'll probably made them more complete when I see the need for it.
 
+### Songs
+I want to learn a song by learning it stanza by stanza. Unless it's
+too dificult, in which case I want to learn line by line.
+
+So this [song deck](example_song.apkg) have a note type where each
+card ask me for a stanza. If the stanza becomes mature, then anki will
+suspend the cards related to lines. If I find that the stanza cards
+are too complicated, I suspend them; in this case anki will show me
+the lines. In the future, I'll also make a rule stating that when I
+know all lines, the stanza card should be unsuspended. 
+
+Here is the long [add-on configuraton](example_song.json) for this
+example. Currently, it only contains rules which state that when some
+card is mature, other cards should be suspended. Please add the song
+deck to your collection while reading the configuration, otherwise it
+will makes no sens.
+
+### Piano scale
+This example is similar. I want to learn scales on piano. When I know
+how to play two octaves, I want to suspend the cards asking me to play
+one octave. When I know how to play two hands, I want to suspend the
+cards asking me to play one hand. Here are the [example deck](example_piano.apkg) and its [configuration](example_piano.json)
+
+I'll explain one line.
+```json
+{"trigger": {"condition": "mature", "cards": "/\"}, "action": {"action": "suspend", "cards": ["\", "/", "right/\", "right\", "right/", "left/\", "left\", "left/"]}},
+```
+The card /\ is the card asking me to play one octave increasing and then one octave decreasing with both hands, . When I know how to do it correctly, I want to suspend all of the cards listed at the end. That is \, which ask me to play an octave decreasing with both hands, / which asks me to play an octave increasing with both hands, right/\ which asks me to play the octave two way with right hand, etc... Note that \, /, right\, right/, are the name of my card type, it has nothing to do with the add-on. It's here only because the name in the configuration must be the same name as the ones in your collection. So, here, my collection has a note type whose name is "Piano scale" and which have cards named "/\", "\", "/", "right/\", "right\", "right/", "left/\", "left\", "left/" and so on.
+
+(For technical reason, each time I use \, I should actually write two \\. So the real line in the example is:
+```json
+{"trigger": {"condition": "mature", "cards": "/\\"}, "action": {"action": "suspend", "cards": ["\\", "/", "right/\\", "right\\", "right/", "left/\\", "left\\", "left/"]}},
+```)
 ## Warning
 ### Computer only
 This add-on can only affect cards on computers where the add-on is
