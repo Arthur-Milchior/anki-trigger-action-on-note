@@ -35,6 +35,15 @@ I've been told this add-on needs example. So here are two real life
 examples from my collection. Those are still work in progress, and
 I'll probably made them more complete when I see the need for it.
 
+You should probably install add-on
+[112201952](https://ankiweb.net/shared/info/112201952) to read the
+examples, because it'll allow you to see the configuration in a
+readable way.
+
+My card types are big, so you may want to use add-on
+[1482505492](https://ankiweb.net/shared/info/1482505492) to makes anki
+quicker before taking a look at them in details.
+
 ### Songs
 I want to learn a song by learning it stanza by stanza. Unless it's
 too dificult, in which case I want to learn line by line.
