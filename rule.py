@@ -53,11 +53,11 @@ def updateNid(nid):
 
 def updateAll():
     nbChanges = 0
-    missings = set
+    missings = set()
     for nid in mw.col.findNotes(""):
-        nbChangesNid, missingNid = updateNid(nid)
+        nbChangeNid, missingNid = updateNid(nid)
         nbChanges +=  nbChangeNid
         missings |= missingNid
-    return nbChanges, missing
+    return nbChanges, missings
             
     
