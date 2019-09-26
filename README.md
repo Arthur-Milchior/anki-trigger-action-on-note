@@ -30,6 +30,14 @@ and that it's unsuspended only if two octaves one hand is suspended.
 
 This add-on allow you to do all of that, and even more.
 
+## Usage
+Once you have created rules, you can apply them by selecting notes in
+the browser, and clicking on "Edit">"Apply rules to note".
+
+Eventually, in the future, rules may be applied automatically. But it
+won't occur before I'm sure that the add-on has no bug.
+
+
 ## Examples
 I've been told this add-on needs example. So here are two real life
 examples from my collection. Those are still work in progress, and
