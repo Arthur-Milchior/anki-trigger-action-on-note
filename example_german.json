@@ -1,5 +1,5 @@
 {"rules":
- "Memrise - 4000 German Words by Frequency":
+ {"Memrise - 4000 German Words by Frequency":
  [
    {
 	 "action":
@@ -31,3 +31,4 @@
    }
  ]
 } 
+}
