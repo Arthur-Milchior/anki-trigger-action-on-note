@@ -1,5 +1,5 @@
 {"rules":
- "Piano scale":
+ {"Piano scale":
  [
    {"trigger": {"condition": "mature", "cards": "/\\"}, "action": {"action": "suspend", "cards": ["\\", "/", "right/\\", "right\\", "right/", "left/\\", "left\\", "left/"]}},
    {"trigger": {"condition": "mature", "cards": "//\\\\"}, "action": {"action": "suspend", "cards": ["/\\", "\\", "\\\\", "/", "//", "right/\\", "right//\\\\", "right\\", "right\\\\", "right/", "right//", "left/\\", "left//\\\\", "left\\", "left\\\\", "left/", "left//"]}},
@@ -33,5 +33,5 @@
    {"trigger": {"condition": "mature", "cards": "right///"}, "action": {"action": "suspend", "cards": ["right/", "right//"]}},
    {"trigger": {"condition": "mature", "cards": "right\\\\"}, "action": {"action": "suspend", "cards": ["right\\"]}},
    {"trigger": {"condition": "mature", "cards": "right\\\\\\"}, "action": {"action": "suspend", "cards": ["right\\", "right\\\\"]}}]
+} 
 }
-  
