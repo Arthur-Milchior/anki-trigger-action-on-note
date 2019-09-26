@@ -95,7 +95,8 @@ The card /\ is the card asking me to play one octave increasing and then one oct
 (For technical reason, each time I use \, I should actually write two \\. So the real line in the example is:
 ```json
 {"trigger": {"condition": "mature", "cards": "/\\"}, "action": {"action": "suspend", "cards": ["\\", "/", "right/\\", "right\\", "right/", "left/\\", "left\\", "left/"]}},
-```)
+```
+)
 ## Warning
 ### Computer only
 This add-on can only affect cards on computers where the add-on is
