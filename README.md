@@ -32,7 +32,10 @@ This add-on allow you to do all of that, and even more.
 
 ## Usage
 Once you have created rules, you can apply them by selecting notes in
-the browser, and clicking on "Edit">"Apply rules to note".
+the browser, and clicking on `Edit>Apply trigger->action rules`.
+
+You can also apply it to all notes, from the main window, by doing
+`Tools>Apply trigger->action rules`
 
 Eventually, in the future, rules may be applied automatically. But it
 won't occur before I'm sure that the add-on has no bug.

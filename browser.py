@@ -18,7 +18,7 @@ def setupMenu(browser):
     browser.form.menuEdit.addAction(a)
 
 def onApply(browser):
-    mw.checkpoint("Apply rules")
+    mw.checkpoint("Apply trigger->action rules")
     mw.progress.start()
     nbChange = 0
     missingNoteTypes = set()
