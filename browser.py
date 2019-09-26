@@ -10,7 +10,7 @@ from anki.lang import _
 from aqt.utils import showWarning, tooltip
 
 def setupMenu(browser):
-    a = QAction(_("Apply rules to note"), browser)
+    a = QAction(_("Apply trigger->action rules"), browser)
     shortcut = getUserOption("Shortcut: Apply rules","Ctrl+alt+Shift+R")
     if shortcut:
         a.setShortcut(QKeySequence(shortcut))
