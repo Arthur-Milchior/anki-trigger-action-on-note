@@ -1,3 +1,3 @@
-from .browser import *
+from . import browser, main
 
-# from .test import *
+#from .test import *

@@ -21,7 +21,7 @@ def setupMenu(browser):
 
 
 def onApply(browser):
-    mw.checkpoint("Apply rules")
+    mw.checkpoint("Apply trigger->action rules")
     mw.progress.start()
     nbChange = 0
     missingNoteTypes = set()
