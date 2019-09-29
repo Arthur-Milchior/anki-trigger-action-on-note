@@ -52,7 +52,7 @@ examples, because it'll allow you to see the configuration in a
 readable way.
 
 My card types are big, so you may want to use add-on
-[1482505492](https://ankiweb.net/shared/info/1482505492) to makes anki
+[777545149](https://ankiweb.net/shared/info/777545149) to makes anki
 quicker before taking a look at them in details.
 
 ### Two languages
