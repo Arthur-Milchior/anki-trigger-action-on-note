@@ -98,6 +98,9 @@ The card /\ is the card asking me to play one octave increasing and then one oct
 ```
 )
 ## Warning
+### Clozes
+Currently, this add-on does not work for note type with cloze deletion. It should gives an error message if you try to use it on such notes. It may change in the future; however it's not clear to me what would be the point of this add-on since cloze numbers are arbitrary.
+
 ### Computer only
 This add-on can only affect cards on computers where the add-on is
 installed. It means that if you see cards on IOS, ankiweb,
@@ -143,6 +146,7 @@ Ensure that actions occurs every time change may occur. I.e. at least:
 * sync
 * full sync
 * import
+* allow to apply them to cloze
 
 ## Links, licence and credits
 
