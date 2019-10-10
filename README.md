@@ -38,9 +38,12 @@ the browser, and clicking on `Edit>Apply trigger->action rules`.
 You can also apply it to all notes, from the main window, by doing
 `Tools>Apply trigger->action rules`
 
-Eventually, in the future, rules may be applied automatically. But it
-won't occur until I'm sure that the add-on has no bugs.
-
+Anki will ask you whether you want to automatically apply rules the
+first time a rule may potentially be applied. Beware, if you had
+created a buggy rule, then you'll automatically apply bugs. However,
+nothing should be irreparable (that's why I didn't create a "delete"
+rule). If you want to change this setting, you can simply change
+the add-on configuration.
 
 ## Examples
 I've been told this add-on needs examples. So here are two real life

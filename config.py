@@ -5,10 +5,11 @@ from aqt.utils import showWarning
 
 # to be configured by Dev
 ############################
-addonName = "Relate card type"
-version = 0
+addonName = "Trigger and actions: change one card depending on what occurs on another card"
+version = 1
 def newVersion():
     pass
+
 """A string stating what could occurs with a wrong configuration file"""
 otherwise= ""
 
@@ -17,11 +18,13 @@ otherwise= ""
 
 userOption = None
 
-
-def getUserOption(key = None, default = None):
+def _getUserOption():
     global userOption
     if userOption is None:
         userOption = mw.addonManager.getConfig(__name__)
+
+def getUserOption(key = None, default = None):
+    _getUserOption()    
     if key is None:
         return userOption
     if key in userOption:
@@ -29,11 +32,11 @@ def getUserOption(key = None, default = None):
     else:
         return default
 
-lastVersion = getUserOption(version)
-if lastVersion is None or lastVersion < version:
+lastVersion = getUserOption(version, 0)
+if lastVersion < version:
     newVersion()
     pass
-if lastVersion is not None and lastVersion>version:
+if lastVersion>version:
     t = f"Please update add-on {addonName}. It seems that your configuration file is made for a more recent version of the add-on."
     if otherwise:
         t+="\n"+otherwise
@@ -59,3 +62,8 @@ def getFromName(name):
         for dic in getUserOption("columns"):
             fromName[dic["name"]]=dic
     return fromName.get(name)
+
+def setUserOption(key, value):
+    _getUserOption()
+    userOption[key] = value
+    writeConfig()

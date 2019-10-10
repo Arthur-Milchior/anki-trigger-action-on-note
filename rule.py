@@ -3,8 +3,15 @@ from .action import applyActions, reverseAction
 from .config import getUserOption
 from aqt import mw
 
+"""True when applying holds. This ensure that a flush triggered by application of the rules does not trigger other rule application"""
+currentlyApplying = False
+
 def applyRuleToNote(note, rule):
     """Whether there was a change"""
+    global currentlyApplying
+    if currentlyApplying:
+        return
+    currentlyApplying = True
     if rule is None:
         return False
     #print(f"Applying rule {rule}")
@@ -17,6 +24,7 @@ def applyRuleToNote(note, rule):
     #     #print("Some change")
     # else:
     #     #print("no change")
+    currentlyApplying = False
     return ret
 
 def applyRulesToNote(note, rules):
