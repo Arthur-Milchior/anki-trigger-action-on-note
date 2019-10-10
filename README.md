@@ -39,11 +39,16 @@ You can also apply it to all notes, from the main window, by doing
 `Tools>Apply trigger->action rules`
 
 Anki will ask you whether you want to automatically apply rules the
-first time a rule may potentially be applied. Beware, if you had
-created a buggy rule, then you'll automatically apply bugs. However,
-nothing should be irreparable (that's why I didn't create a "delete"
-rule). If you want to change this setting, you can simply change
-the add-on configuration.
+first time a rule may potentially be applied to a note. Beware, if you
+had created a buggy rule, then you'll automatically apply
+bugs. However, nothing should be irreparable (that's why I didn't
+create a "delete" rule). If you want to change this setting, you can
+simply change the add-on configuration.
+
+The first time anki save the whole collection (every 5 minutes or
+during sync), anki will ask whether you want to apply all rules while
+saving. If you select yes, on each save, the rules will be
+applied. This can also be changed in the settings.
 
 ## Examples
 I've been told this add-on needs examples. So here are two real life
