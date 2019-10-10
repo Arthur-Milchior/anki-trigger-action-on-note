@@ -1,43 +1,42 @@
 The configuration contains a simple entry: "rules". A rule is simply a
-dictionnary associating to each note type name a "note type rule".
+dictionary associating to each note type name a "note type rule".
 
-A "note type rule" itself is a list of "atomic rule".
+A "note type rule" itself is a list of "atomic rules".
 
-An "atomic rule" can take the following parameter:
+An "atomic rule" can take the following parameters:
 * "trigger": a trigger.
 * "action": an action
 * "autoReverse": if set to true, the inverse of the action will be
-  applied when the triggering rules does not hold anymore.
+  applied when the triggering rule does not hold anymore.
 
 A trigger is either:
 * an atomic trigger/action
 * a tuple with:
 ** "any" or "all"
-** a list of trigger
+** a list of triggers
 
-The non-atomic trigger holds if any/all atomic triggers holds.
+The non-atomic trigger holds if any/all atomic triggers hold.
 
 An "atomic trigger" is:
-* "condition": a condition which must be satisfied. It can be
+* "condition": A condition which must be satisfied. It can be
   "mature", "young", "suspended", "unsuspended", "buried", "unburied",
   "easy", "hard", "generated", "not generated", "flag", "unflag", "new" or
   expressed as a sql request where `:cid` is the card id and `:nid` is
   note id. The query should return a boolean scalar.
-* "param": the value at which a card is supposed to be
-  mature/easy or The number of the flag. By default a card is mature when it's interval is 21
-  days and an easy card is one whose ease it's at least 300%
-* "card types: a (list of) card type's name on which this trigger apply. If
-  some card does not exists, the trigger fails (unless the condition
-  is "not generated")
+* "param": The value at which a card is supposed to be
+  mature/easy, or the number of the flag. By default a card is mature when its interval is 21
+  days and an easy card is one whose ease is at least 300%
+* "card types": A card type name or list of names to which this trigger applies. If
+  some card of that type does not exist, the trigger fails (unless the condition is "not generated")
 
-A action is either:
+An action is either:
 * an atomic action
-* a list of atomic action
+* a list of atomic actions
 
 An atomic action is:
-* "action": what to do to other cards, when the triggering rules
-  apply. Actions are "suspend", "unsuspend", "bury", "unbury", "flagi"
-  with "i" a flag number between 0 and 4 included.
-* "card types: a list of card type on which this action apply. If some
-  card does not exists, the action is not applied to it simply.
+* "action": what to do to other cards when the triggering rules
+  apply. Actions are "suspend", "unsuspend", "bury", "unbury", "flagN"
+  (where "N" is a flag number between 0 and 4).
+* "card types: a list of card types on which this action applies. If some
+  card of that type does not exist, the action has no effect.
 
