@@ -4,14 +4,22 @@ from .action import applyActions, reverseAction
 from .config import getUserOption
 from .trigger import checkTrigger, reverseTrigger
 
+"""True when applying holds. This ensure that a flush triggered by application of the rules does not trigger other rule application"""
+currentlyApplying = False
+
 
 def applyRuleToNote(note, rule):
     """Whether there was a change"""
+    global currentlyApplying
+    if currentlyApplying:
+        return
+    currentlyApplying = True
     if rule is None:
         return False
     if not checkTrigger(note, rule["trigger"]):
         return False
     ret = applyActions(note, rule["action"])
+    currentlyApplying = False
     return ret
 
 
