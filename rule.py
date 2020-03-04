@@ -13,10 +13,11 @@ def applyRuleToNote(note, rule):
     global currentlyApplying
     if currentlyApplying:
         return
-    currentlyApplying = True
     if rule is None:
         return False
+    currentlyApplying = True
     if not checkTrigger(note, rule["trigger"]):
+        currentlyApplying = False
         return False
     ret = applyActions(note, rule["action"])
     currentlyApplying = False

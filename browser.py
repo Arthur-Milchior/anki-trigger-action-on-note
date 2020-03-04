@@ -8,7 +8,7 @@ from aqt import mw
 from aqt.utils import showWarning, tooltip
 
 from .config import getUserOption
-from .rule import updateNid
+from .rule import currentlyApplying, updateNid
 
 
 def setupMenu(browser):
@@ -23,6 +23,8 @@ def setupMenu(browser):
 def onApply(browser):
     mw.checkpoint("Apply trigger->action rules")
     mw.progress.start()
+    global currentlyApplying
+    currentlyApplying = False
     nbChange = 0
     missingNoteTypes = set()
     for nid in browser.selectedNotes():
