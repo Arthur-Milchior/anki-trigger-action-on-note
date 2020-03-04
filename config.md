@@ -1,4 +1,5 @@
 The configuration contains a few simple parameters and a dictionnary of rules. We first list parameters:
+
 * "Automatically applies rules": Whether rules should be applied each time something occur in your collection (i.e. a review, suspending/unsuspending, burying/unburying....). Some changes may be missed, but most of them should trigger the rules.
 * "Apply on save": whether to apply all potential rules while saving the collection.
 * "Rules" a dictionary associating to each note type name a "note type rule".
@@ -6,20 +7,23 @@ The configuration contains a few simple parameters and a dictionnary of rules. W
 A "note type rule" itself is a list of "atomic rules".
 
 An "atomic rule" can take the following parameters:
+
 * "trigger": a trigger.
 * "action": an action
 * "autoReverse": if set to true, the inverse of the action will be
   applied when the triggering rule does not hold anymore.
   
 A trigger is either:
+
 * an atomic trigger/action
 * a tuple with:
-** "any" or "all"
-** a list of triggers
+      * "any" or "all"
+      * a list of triggers
 
 The non-atomic trigger holds if any/all atomic triggers hold.
 
 An "atomic trigger" is:
+
 * "condition": A condition which must be satisfied. It can be
   "mature", "young", "suspended", "unsuspended", "buried", "unburied",
   "easy", "hard", "generated", "not generated", "flag", "unflag", "new" or
@@ -32,10 +36,12 @@ An "atomic trigger" is:
   no card of that type exists, the trigger fails (unless the condition is "not generated")
 
 An action is either:
+
 * an atomic action
 * a list of atomic actions
 
 An atomic action is:
+
 * "action": what to do to other cards when the triggering rules
   apply. Actions are "suspend", "unsuspend", "bury", "unbury", "flagN"
   (where "N" is a flag number between 0 and 4).
