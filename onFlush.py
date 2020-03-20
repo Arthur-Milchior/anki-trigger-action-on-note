@@ -1,6 +1,5 @@
-from anki.cards import Card
+from anki import hooks
 from anki.lang import _
-from anki.notes import Note
 from aqt.utils import askUser
 
 from .config import getUserOption, setUserOption
@@ -16,25 +15,18 @@ See https://github.com/Arthur-Milchior/anki-trigger-action-on-note for more deta
     return aut
 
 
-oldFlushCard = Card.flush
-
-
 def flushCard(self):
-    oldFlushCard(self)
     if auto():
         note = self.note()
         updateNote(note)
 
 
-Card.flush = flushCard
-
-oldFlushNote = Note.flush
+hooks.card_will_flush(flushCard)
 
 
-def flushNote(self, mod=None):
-    oldFlushNote(self, mod=mod)
+def flushNote(self):
     if auto():
         updateNote(self)
 
 
-Note.flush = flushNote
+hooks.note_will_flush(flushNote)
