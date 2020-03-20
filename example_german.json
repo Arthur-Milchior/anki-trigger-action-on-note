@@ -2,26 +2,27 @@
  {"Memrise - 4000 German Words by Frequency":
  [
    {
-	 "action":
-	 {
+	"action":
+	{
 	   "action": "unsuspend",
 	   "cards": "German -> English"},
-	 "trigger":
-	 {
-	   "cards": "English -> German",
-	   "condition": "mature"
-	 }
+	   "trigger":
+		{
+		   "cards": "English -> German",
+		   "condition": "mature"
+		}
    },
-   {"action":
-	{"action": "suspend",
-	 "cards": "German -> English"
+   {
+	"action":
+	{
+		"action": "suspend",
+		"cards": "German -> English"
 	},
 	"trigger":
 	["any",
 	 [
 	   {
-		 "cards":
-		"English -> German",
+		"cards": "English -> German",
 		"condition": "young"},
 	   {
 		 "cards": "English -> German",
@@ -30,5 +31,5 @@
 	]
    }
  ]
-} 
+ } 
 }
