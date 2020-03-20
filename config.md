@@ -1,4 +1,4 @@
-The configuration contains a few simple parameters and a dictionnary of rules. We first list parameters:
+The configuration contains a few simple parameters and a dictionary of rules. We first list parameters:
 
 * "Automatically applies rules": Whether rules should be applied each time something occur in your collection (i.e. a review, suspending/unsuspending, burying/unburying....). Some changes may be missed, but most of them should trigger the rules.
 * "Apply on save": whether to apply all potential rules while saving the collection.
