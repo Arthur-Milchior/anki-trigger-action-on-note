@@ -38,11 +38,15 @@ def checkAtomicTriggerNote(note, trigger):
         cardName = cards
         return checkAtomicTriggerCard(getCard(note, cardName), trigger)
     quantifier, cards = cards
-    zero = True if quantifier == "all" else False
     for cardName in cards:
-        if checkAtomicTriggerCard(getCard(note, cardName), trigger) == zero:
-            return zero
-    return not zero
+        applying = checkAtomicTriggerCard(getCard(note, cardName), trigger)
+        if quantifier == "all" and not applying:
+            return False
+        if quantifier == "any" and applying:
+            return True
+    if quantifier == "all":
+        return True
+    return False
 
 
 def checkTrigger(note, trigger):
