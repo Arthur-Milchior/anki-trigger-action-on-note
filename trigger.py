@@ -1,5 +1,6 @@
 from .utils import *
 
+"""Method for a trigger. It takes an actual card object, not None. (Hence not generated is a special case.)"""
 methods = {
     "mature": lambda card, param=None: card.ivl >= (21 if param is None else param),
     "young": lambda card, param=None: card.ivl < (21 if param is None else param),
@@ -11,7 +12,7 @@ methods = {
     "unsuspended": lambda card, param=None: card.queue != QUEUE_SUSPENDED,
     "buried": lambda card, param=None: card.queue == QUEUE_BURIED,
     "unburied": lambda card, param=None: card.queue != QUEUE_BURIED,
-    # "generated": lambda card, param=None: card != None
+    "generated": lambda card, param=None: card != None,
     # "not generated": lambda card, param=None: card is None
     "sql": lambda card, sql: mw.col.db.scalar(sql, {"cid": card.id, "nid": card.nid}),
     "flag": lambda card, param=None: card.flag % 8 == param,
