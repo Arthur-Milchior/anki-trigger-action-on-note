@@ -31,8 +31,8 @@ Card.flush = flushCard
 oldFlushNote = Note.flush
 
 
-def flushNote(self, mod=None):
-    oldFlushNote(self, mod=mod)
+def flushNote(self):
+    oldFlushNote(self)
     if auto():
         updateNote(self)
 
