@@ -170,5 +170,5 @@ Key         |Value
 Copyright   | Arthur Milchior <arthur@milchior.fr>
 Based on    | Anki code by Damien Elmes <anki@ichi2.net>
 License     | GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html
-Source in   | https://github.com/Arthur-Milchior/anki-
+Source in   | https://github.com/Arthur-Milchior/anki-trigger-action-on-note
 Addon number| [1981494159](https://ankiweb.net/shared/info/1981494159)
