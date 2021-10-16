@@ -40,7 +40,7 @@ def reverse(rule):
 
 
 def updateNote(note):
-    model = note.model()
+    model = note.note_type()
     modelName = model["name"]
     rules = getUserOption("rules").get(modelName)
     if rules is None:

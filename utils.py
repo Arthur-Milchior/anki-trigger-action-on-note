@@ -19,7 +19,7 @@ def getTemplateOrd(model, cardName):
 
 
 def getCardId(note, cardName):
-    ord = getTemplateOrd(note.model(), cardName)
+    ord = getTemplateOrd(note.note_type(), cardName)
     if ord is None:
         return None
     return mw.col.db.scalar("select id from cards where nid = ? and ord = ?", note.id, ord)
